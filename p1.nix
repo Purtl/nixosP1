@@ -107,6 +107,7 @@
     thunderbird
     sway-contrib.grimshot
     leafpad
+    jetbrains.phpstorm
   #  steam
   ];
 
