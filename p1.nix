@@ -99,6 +99,7 @@
     waybar
     wdisplays
     wget
+    wl-clipboard
     wofi
     zsh
     pavucontrol
