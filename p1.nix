@@ -45,6 +45,10 @@
 
   hardware = {
     pulseaudio.enable = true;
+    opengl = {
+    	enable = true;
+    	driSupport = true;
+    };
     bluetooth = {
       # hsphfpd.enable = true;
       enable = true;
@@ -77,7 +81,13 @@
   users.defaultUserShell = pkgs.zsh;
 
   # Install software
-  environment.systemPackages = with pkgs; [
+  environment = {
+  systemPackages = with pkgs; [
+    kora-icon-theme
+    glxinfo
+    pciutils
+    mesa
+    gtk3
     alacritty
     bluez
     jq
@@ -116,6 +126,18 @@
     asdf-vm
   #  steam
   ];
+  variables = {
+    MOZ_ENABLE_WAYLAND = "1"; # For Firefox
+    _JAVA_AWT_WM_NONREPARENTING=1;
+    XDG_SESSION_TYPE = "wayland";
+    GDK_BACKEND = "wayland";
+    QT_QPA_PLATFORM = "wayland-egl"; # For Qt applications
+    ZDOTDIR = "/home/tom/.config/zsh";
+    CAPACITOR_ANDROID_STUDIO_PATH = "/sbin/android-studio";
+    ANDROID_SDK_ROOT = "/home/tom/Android/Sdk";
+    CLUTTER_BACKEND = "wayland";
+  };
+  };
 
   fonts.packages = with pkgs; [
     (nerdfonts.override {fonts = [ "Lilex" ]; })
