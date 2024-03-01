@@ -128,7 +128,7 @@
   ];
   variables = {
     MOZ_ENABLE_WAYLAND = "1"; # For Firefox
-    _JAVA_AWT_WM_NONREPARENTING=1;
+    _JAVA_AWT_WM_NONREPARENTING = "1";
     XDG_SESSION_TYPE = "wayland";
     GDK_BACKEND = "wayland";
     QT_QPA_PLATFORM = "wayland-egl"; # For Qt applications
