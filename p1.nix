@@ -74,11 +74,13 @@
       extraGroups = [ "wheel" ];
     };
   };
+  users.defaultUserShell = pkgs.zsh;
 
   # Install software
   environment.systemPackages = with pkgs; [
     alacritty
     bluez
+    jq
     brightnessctl
     clipmenu
     playerctl
@@ -88,12 +90,14 @@
     keepmenu
     neofetch
     neovim
+    wine64
     libnotify
     qutebrowser
     chromium
     ranger
     spotifywm
     tmux
+    teams-for-linux
     vim
     vlc
     waybar
@@ -102,12 +106,14 @@
     wl-clipboard
     wofi
     zsh
+    zim
     pavucontrol
     pulseaudio
     thunderbird
     sway-contrib.grimshot
     leafpad
     jetbrains.phpstorm
+    asdf-vm
   #  steam
   ];
 
@@ -130,6 +136,9 @@
   # };
 
   programs = {
+    zsh = {
+	enable = true;
+    };
     sway.enable = true;
     nano.syntaxHighlight = false; #Remove once issue 195795 is fixed
     steam = {
