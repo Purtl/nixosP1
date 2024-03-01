@@ -48,6 +48,7 @@
     opengl = {
     	enable = true;
     	driSupport = true;
+    	extraPackages = with pkgs; [ intel-media-driver ];
     };
     bluetooth = {
       # hsphfpd.enable = true;
@@ -88,6 +89,7 @@
     pciutils
     mesa
     gtk3
+    nordic
     alacritty
     bluez
     jq
@@ -131,11 +133,13 @@
     _JAVA_AWT_WM_NONREPARENTING = "1";
     XDG_SESSION_TYPE = "wayland";
     GDK_BACKEND = "wayland";
+    GTK_THEME = "Nordic";
     QT_QPA_PLATFORM = "wayland-egl"; # For Qt applications
     ZDOTDIR = "/home/tom/.config/zsh";
     CAPACITOR_ANDROID_STUDIO_PATH = "/sbin/android-studio";
     ANDROID_SDK_ROOT = "/home/tom/Android/Sdk";
     CLUTTER_BACKEND = "wayland";
+    LIBVA_DRIVER_NAME = "iHD";
   };
   };
 
