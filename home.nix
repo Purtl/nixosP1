@@ -16,8 +16,21 @@
   # changes in each release.
   home.stateVersion = "23.11";
 
+  home.sessionVariables = {
+    XCURSOR_THEME = "capitaine-cursors";
+    XCURSOR_SIZE = "42";
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      name = "capitaine-cursors";
+      package = pkgs.capitaine-cursors;
+      size = 42;
+    };
+  };
 
   xdg.mimeApps = {
     enable = true;

@@ -103,6 +103,7 @@
     clipmenu
     font-awesome
     git
+    glib
     glxinfo
     gtk3
     htop
@@ -163,10 +164,6 @@
   virtualisation.docker = {
     enable = true;
     storageDriver = "btrfs";
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
   };
 
 
