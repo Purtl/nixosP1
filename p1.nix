@@ -18,6 +18,10 @@
     };
   };
 
+  systemd.tmpfiles.rules = [
+    "L /sbin/docker - - - - /run/current-system/sw/bin/docker"
+  ];
+
   networking = {
     hostName = "kaiserP1"; # Define your hostname.
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -159,6 +163,10 @@
   virtualisation.docker = {
     enable = true;
     storageDriver = "btrfs";
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
   };
 
 
