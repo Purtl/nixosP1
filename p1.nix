@@ -19,7 +19,7 @@
   };
 
   systemd.tmpfiles.rules = [
-    "L /sbin/docker - - - - /run/current-system/sw/bin/docker"
+    "L /sbin/docker - - - - /run/current-system/sw/bin/docker" # may has to be put in by hand
   ];
 
   networking = {
