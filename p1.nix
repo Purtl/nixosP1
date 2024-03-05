@@ -27,12 +27,11 @@
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_GB.UTF-8";
 
-   console = {
-     font = "Lat2-Terminus16";
-     keyMap = "us";
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "us";
   #   useXkbConfig = true; # use xkbOptions in tty.
-   };
-
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -98,6 +97,7 @@
     capitaine-cursors
     chromium
     clipmenu
+    font-awesome
     git
     glxinfo
     gtk3
@@ -190,10 +190,6 @@
 
   # Enable the OpenSSH daemon.
   services = {
-    xserver.displayManager.sessionCommands = ''
-      export XCURSOR_THEME=breeze_cursors
-      export XCURSOR_SIZE=24
-  '';
     openssh.enable = true;
     greetd = {
       enable = true;
