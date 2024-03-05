@@ -91,48 +91,50 @@
   # Install software
   environment = {
   systemPackages = with pkgs; [
-    kora-icon-theme
-    glxinfo
-    pciutils
-    mesa
-    gtk3
-    nordic
     alacritty
+    asdf-vm
     bluez
-    jq
     brightnessctl
+    capitaine-cursors
+    chromium
     clipmenu
-    playerctl
     git
+    glxinfo
+    gtk3
     htop
+    jetbrains.phpstorm
+    jq
     keepassxc
     keepmenu
+    kora-icon-theme
+    leafpad
+    libnotify
+    mesa
     neofetch
     neovim
-    wine64
-    libnotify
+    nordic
+    pavucontrol
+    pciutils
+    playerctl
+    pulseaudio
     qutebrowser
-    chromium
     ranger
     spotifywm
-    tmux
+    sway-contrib.grimshot
     teams-for-linux
+    thunderbird
+    tmux
     vim
     vlc
     waybar
     wdisplays
     wget
+    wine
+    wine64
     wl-clipboard
     wofi
-    zsh
     zim
-    pavucontrol
-    pulseaudio
-    thunderbird
-    sway-contrib.grimshot
-    leafpad
-    jetbrains.phpstorm
-    asdf-vm
+    zsh
   #  steam
   ];
   variables = {
@@ -188,6 +190,10 @@
 
   # Enable the OpenSSH daemon.
   services = {
+    xserver.displayManager.sessionCommands = ''
+      export XCURSOR_THEME=breeze_cursors
+      export XCURSOR_SIZE=24
+  '';
     openssh.enable = true;
     greetd = {
       enable = true;
