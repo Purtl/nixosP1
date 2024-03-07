@@ -100,8 +100,9 @@
     brightnessctl
     capitaine-cursors
     chromium
-    clipmenu
     clipman
+    python3
+    networkmanager_dmenu
     font-awesome
     git
     glib
