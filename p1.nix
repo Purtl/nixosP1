@@ -101,6 +101,7 @@
     capitaine-cursors
     chromium
     clipmenu
+    clipman
     font-awesome
     git
     glib
@@ -114,6 +115,7 @@
     kora-icon-theme
     leafpad
     libnotify
+    mako
     mesa
     neofetch
     neovim
