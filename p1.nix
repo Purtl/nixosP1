@@ -82,7 +82,7 @@
      tom = {
        createHome = true;
        isNormalUser = true;
-       extraGroups = [ "wheel" "docker" "video" "audio" "networkmanager" "lp" "scanner" ]; # Enable ‘sudo’ for the user.
+       extraGroups = [ "wheel" "docker" "video" "audio" "networkmanager" "lp" "scanner" "adbusers" ]; # Enable ‘sudo’ for the user.
        initialPassword = "password";
     };
     root = {
@@ -119,6 +119,7 @@
     libnotify
     mako
     mesa
+    nodejs
     neofetch
     neovim
     nordic
@@ -128,6 +129,7 @@
     pulseaudio
     qutebrowser
     ranger
+    signal-desktop
     spotifywm
     sway-contrib.grimshot
     teams-for-linux
@@ -190,6 +192,7 @@
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     };
+    adb.enable = true;
   };
   xdg.portal.wlr.enable = true;
 
