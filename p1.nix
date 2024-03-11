@@ -96,6 +96,7 @@
   systemPackages = with pkgs; [
     alacritty
     asdf-vm
+    bc
     bluez
     brightnessctl
     capitaine-cursors
