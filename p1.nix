@@ -26,10 +26,19 @@
     hostName = "kaiserP1"; # Define your hostname.
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+    firewall.allowedTCPPorts = [ 9003 ];
   };
 
   time.timeZone = "Europe/Berlin";
-  i18n.defaultLocale = "en_GB.UTF-8";
+  i18n = {
+    defaultLocale = "en_GB.UTF-8";
+    supportedLocales = [
+      "C.UTF-8/UTF-8"
+      "en_GB.UTF-8/UTF-8"
+      "de_DE.UTF-8/UTF-8"
+      "en_US.UTF-8/UTF-8"
+    ];
+  };
 
   console = {
     font = "Lat2-Terminus16";
@@ -38,7 +47,14 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services = {
+    printing.enable = true;
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+  };
 
   # Enable sound.
   sound = {
@@ -95,21 +111,27 @@
   environment = {
   systemPackages = with pkgs; [
     alacritty
-    asdf-vm
     bc
+    blender
     bluez
     brightnessctl
     capitaine-cursors
     chromium
     clipman
     python3
+    lftp
     networkmanager_dmenu
-    font-awesome
+    eza
+    feh
+    foomatic-db
+    foomatic-db-engine
+    foomatic-db-nonfree
     git
     glib
     glxinfo
     gtk3
     htop
+    insomnia
     jetbrains.phpstorm
     jq
     keepassxc
@@ -117,14 +139,15 @@
     kora-icon-theme
     leafpad
     libnotify
+    lsof
     mako
     mesa
-    nodejs
     neofetch
     neovim
     nordic
     pavucontrol
     pciutils
+    photoflare
     playerctl
     pulseaudio
     qutebrowser
@@ -135,15 +158,19 @@
     teams-for-linux
     thunderbird
     tmux
+    tmuxifier
     vim
     vlc
     waybar
     wdisplays
+    webcamoid
     wget
+    wgnord
     wine
     wine64
     wl-clipboard
     wofi
+    ydotool
     zim
     zsh
   #  steam
@@ -160,11 +187,15 @@
     ANDROID_SDK_ROOT = "/home/tom/Android/Sdk";
     CLUTTER_BACKEND = "wayland";
     LIBVA_DRIVER_NAME = "iHD";
+    EDITOR = "nvim";
+    SUDO_EDITOR = "nvim";
   };
   };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = [ "Lilex" ]; })
+    font-awesome
+    font-awesome_5
+    (nerdfonts.override {fonts = [ "Lilex" "DroidSansMono" "FiraCode" "Hack"]; })
   ];
 
   virtualisation.docker = {
@@ -206,12 +237,18 @@
     greetd = {
       enable = true;
       settings = {
+      	initial_session = {
+	  command = "sway";
+	  user = "tom";
+	};
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --user-menu --remember --remember-user-session --time --cmd sway";
           user = "tom";
         };
       };
     };
   };
-  system.stateVersion = "24.05";
+  system = {
+    stateVersion = "24.05";
+  };
 }
