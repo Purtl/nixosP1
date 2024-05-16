@@ -137,6 +137,7 @@
     keepassxc
     keepmenu
     kora-icon-theme
+    lazygit
     leafpad
     libnotify
     lsof
